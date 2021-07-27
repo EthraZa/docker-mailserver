@@ -6,6 +6,31 @@ hide:
 
 This is a list of all configuration files and directories which are optional or automatically generated in your `config` directory.
 
+## Add Configuration
+
+The default configurations can be easily extended providing files as `dovecot.cf`, `postfix-main.cf` or `postfix-master.cf` to the `config` directory.
+
+
+Binding mount `config` directory in `docker-compose.yml`:
+
+```yml
+volumes:
+      - ./config/:/tmp/docker-mailserver/
+```
+
+Your directory should look like this example:
+
+```txt
+├── config
+│   ├── dovecot.cf
+│   ├── postfix-accounts.cf
+│   ├── postfix-main.cf
+│   ├── postfix-master.cf
+│   └── postfix-virtual.cf
+├── docker-compose.yml
+└── setup.sh
+```
+
 ## Directories
 
 - **sieve-filter:** directory for sieve filter scripts. (Docs: [Sieve][docs-sieve])
